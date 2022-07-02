@@ -1,5 +1,5 @@
 <template>
-  <a @click.prevent="handleClick">
+  <a class="hover:cursor-pointer" @click.prevent="handleClick">
     <div
       class="
         flex-grow

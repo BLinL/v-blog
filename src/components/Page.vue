@@ -4,14 +4,14 @@
     <template v-for="(item, index) in pageNumberArr" :key="index">
       <button
         type="button"
-        class="border-1 rounded-sm min-w-fit w-10 h-10"
-        :class="{ border: item === pageProps.curPage }"
+        class="rounded-sm min-w-fit w-10 h-10"
+        :class="{ 'bg-blue-400 text-white': item === pageProps.curPage }"
         @click="handleClick(item)"
       >
         {{ item }}
       </button>
     </template>
-    <button v-if="pageProps.curPage < pageCount" @click="handleClick(pageProps.curPage + 1)">下一页&gt;</button>
+    <button v-if="pageProps.curPage < maxPage" @click="handleClick(pageProps.curPage + 1)">下一页&gt;</button>
   </div>
 </template>
 
@@ -37,7 +37,7 @@ export default {
     });
 
     const minPage = computed(()=>{
-        let min = props.pageProps.curPage - Math.floor(props.pageProps.visibleNumber / 2)
+        let min = props.pageProps.curPage - (Math.floor(props.pageProps.visibleNumber / 2))
         if (min < 1) {
             min = 1
         }
@@ -57,7 +57,7 @@ export default {
 
     const pageNumberArr = computed(()=>{
         const arr = []
-        for(let i = minPage.value; i < maxPage.value; i++) {
+        for(let i = minPage.value; i <= maxPage.value; i++) {
             arr.push(i)
         }
         return arr
