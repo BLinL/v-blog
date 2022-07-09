@@ -10,20 +10,27 @@
         <div>
           {{ article.main }}
         </div>
+          <v-md-preview-html :html="article.main" preview-class="vuepress-markdown-body"></v-md-preview-html>
       </article>
     </div>
   </main>
 </template>
 
 <script>
+// import VueMarkdown from 'vue-markdown'
+import VueMarkdown from "vue-markdown/src/VueMarkdown";
+
 export default {
+  components: {
+    VueMarkdown
+  },
   props: {
     article: {
       type: Object,
       default: {
-        title: "",
-        date: "",
-        main: "",
+        title: "AAa",
+        date: "BBB",
+        main: "<h1>haha</h1><code>import from 'vue'</code>",
       },
     },
   },

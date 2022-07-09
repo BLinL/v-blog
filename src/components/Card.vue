@@ -1,9 +1,7 @@
 <template>
-  <a class="hover:cursor-pointer" @click.prevent="handleClick">
+  <a class="hover:cursor-pointer basis-1/4" @click.prevent="handleClick">
     <div
       class="
-        flex-grow
-        max-w-xs
         m-[10px]
         border-2 border-neutral-100
         rounded
