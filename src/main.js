@@ -14,6 +14,21 @@ import '@kangc/v-md-editor/lib/style/preview-html.css';
 // // 引入使用主题的样式
 // import '@kangc/v-md-editor/lib/theme/style/vuepress';
 
+import './assets/main.css'
+
+// font awesome
+/* import the fontawesome core */
+import { library } from '@fortawesome/fontawesome-svg-core'
+/* import font awesome icon component */
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
+/* import specific icons */
+import { faUserSecret, faHouse, faFilePen, faBed } from '@fortawesome/free-solid-svg-icons'
+/* add icons to the library */
+library.add(faUserSecret)
+library.add(faHouse)
+library.add(faFilePen)
+library.add(faBed)
+
 import App from './App.vue'
 import Home from '@/views/Home.vue'
 import Blog from '@/views/Blog.vue'
@@ -50,6 +65,7 @@ const router = createRouter({
 
 console.log(createRouter)
 createApp(App)
+.component('font-awesome-icon', FontAwesomeIcon)
 .use(router)
 .use(VueMarkdownEditor)
 .use(VMdPreviewHtml)
