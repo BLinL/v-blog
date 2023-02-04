@@ -3,3 +3,23 @@
 @tailwind components;
 
 @tailwind utilities;
+
+.fl {
+    float: left
+}
+
+.fr {
+    float: right
+}
+
+.clear-f::before {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+.clear-f::after {
+    content: "";
+    display: block;
+    clear: both;
+}

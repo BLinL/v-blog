@@ -18,18 +18,18 @@
 
 <script>
 // import VueMarkdown from 'vue-markdown'
-import VueMarkdown from "vue-markdown/src/VueMarkdown";
+// import VueMarkdown from "vue-markdown/src/VueMarkdown";
 
 export default {
   components: {
-    VueMarkdown
+    // VueMarkdown
   },
   props: {
     article: {
       type: Object,
       default: {
         title: "AAa",
-        date: "BBB",
+        date: "2022-02-02",
         main: "<h1>haha</h1><code>import from 'vue'</code>",
       },
     },

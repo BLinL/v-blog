@@ -1,38 +1,45 @@
 <template>
-  <a class="hover:cursor-pointer basis-1/4" @click.prevent="handleClick">
     <div
+      style="width:100%"
       class="
         m-[10px]
-        border-2 border-neutral-100
-        rounded
-        p-1
+        border-b-2 border-neutral-100
+        rounded hover:cursor-pointer hover:bg-slate-50
       "
+      @click.prevent="handleClick"
     >
-      <h1 class="text-lg m-2">title</h1>
-      <div class="text-base mx-2 cusor-auto">
-        描述：Now it no longer deps on Vue Router, meaning you can do components
-        transition even on the same page (statefully!)https://t.co/8ATxrqLpnv
-        pic.twitter.com/Fl0fjewqaENow it no longer deps on Vue Router, meaning
-        you can do components transition even on the same page
-        (statefully!)https://t.co/8ATxrqLpnv pic.twitter.com/Fl0fjewqaE
+      <h1 class="text-lg m-2">{{ blogData.tittle }}</h1>
+      <div class="text-base mx-2 cusor-auto text-gray-400">
+        {{ blogData.desc }}
       </div>
-      <div class="text-sm flex text-gray-400">
-        <div class="m-2">2022-02-02</div>
-        <div class="text-sm m-2">author: me</div>
+      <div class="text-sm text-gray-400 clear-f">
+        <div class="m-2 fl"> {{ blogData.createTime }}</div>
+        <div class="text-sm m-2 fr">{{ blogData.author }}</div>
       </div>
     </div>
-  </a>
 </template>
 
 <script>
+import { useRouter } from "vue-router"
+import { reactive, toRefs } from "vue"
 export default {
-    methods: {
-        handleClick() {
-            this.$router.push({name: 'post', params: { postId: 1 }})
-        }
+  props: {
+    blogData: {
+      type: Object,
+      default: ()=>{return {}}
     }
+  },
+  setup(props) {
+    let router = useRouter()
+    const handleClick = function(){
+      router.push({name: 'post', params: { postId: 1 }})
+    }
+    const blogData = reactive(props.blogData)
+    return {  blogData, handleClick }
+  }
 };
 </script>
 
 <style>
+
 </style>
