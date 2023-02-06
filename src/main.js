@@ -10,9 +10,16 @@ import Prism from 'prismjs';
 
 // md preview
 import VMdPreviewHtml from '@kangc/v-md-editor/lib/preview-html';
-import '@kangc/v-md-editor/lib/style/preview-html.css';
-// // 引入使用主题的样式
-// import '@kangc/v-md-editor/lib/theme/style/vuepress';
+import VMdPreview  from '@kangc/v-md-editor/lib/preview';
+import githubTheme from '@kangc/v-md-editor/lib/theme/github.js';
+import '@kangc/v-md-editor/lib/theme/style/github.css';
+
+// highlightjs
+import hljs from 'highlight.js';
+
+VMdPreview.use(githubTheme, {
+  Hljs: hljs,
+});
 
 import './assets/main.css'
 
@@ -74,4 +81,5 @@ createApp(App)
 .use(router)
 .use(VueMarkdownEditor)
 .use(VMdPreviewHtml)
+.use(VMdPreview)
 .mount('#app')

@@ -32,7 +32,7 @@ export default {
   setup(props) {
     let router = useRouter()
     const handleClick = function(){
-      router.push({name: 'post', params: { postId: 1 }})
+      router.push({name: 'post', params: { postId: blogData.blogId }})
     }
     const blogData = reactive(props.blogData)
     return {  blogData, handleClick }
