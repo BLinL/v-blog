@@ -1,5 +1,5 @@
 import { createApp } from 'vue'
-import { createRouter,createWebHistory } from 'vue-router'
+import router from './routes/router'
 
 // md editor
 import VueMarkdownEditor from '@kangc/v-md-editor';
@@ -37,45 +37,13 @@ library.add(faFilePen)
 library.add(faBed)
 
 import App from './App.vue'
-import Home from '@/views/Home.vue'
-import Blog from '@/views/Blog.vue'
-import About from '@/views/About.vue'
-import Post from '@/views/Post.vue'
-import Ediotr from '@/views/Editor.vue'
 
 
 VueMarkdownEditor.use(vuepressTheme, {
   Prism,
 });
 
-const router = createRouter({
-    history: createWebHistory(),
-    routes: [
-        {
-            path: '/',
-            component: Home
-        },
-        {
-            path: '/blog',
-            component: Blog,
-        },
-        {
-            name: 'post',
-            path: '/post/:postId',
-            component: Post,
-        },
-        {
-            path: '/about',
-            component: About
-        },
-        {
-            path: '/editor',
-            component: Ediotr
-        }
-    ]
-})
 
-console.log(createRouter)
 createApp(App)
 .component('font-awesome-icon', FontAwesomeIcon)
 .use(router)
